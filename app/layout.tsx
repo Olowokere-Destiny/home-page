@@ -3,11 +3,10 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 
 const roboto = Roboto({
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
-}); 
-
+});
 
 export const metadata: Metadata = {
   title: "AAVORide – Car Rentals & Outstation Trips with Driver",
@@ -32,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.variable} ${roboto.variable} antialiased`}
-      >
+      <body className={`${roboto.variable} ${roboto.variable} antialiased`}>
         {children}
       </body>
     </html>
