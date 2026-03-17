@@ -82,7 +82,7 @@ export default function ChooseSection() {
           Choose Your Ride
         </h2>
 
-        <div className="overflow-x-auto no-scrollbar sm:ml-8 sm:pr-8 xl:ml-16 xl:pr-16">
+        <div className="overflow-x-auto no-scrollbar sm:ml-8 sm:pr-8 xl:ml-[6vw] xl:pr-[6vw]">
           <div className="flex gap-6 px-6 sm:px-0 w-max">
             {[...rides, ...rides].map((ride, index) => (
               <div
