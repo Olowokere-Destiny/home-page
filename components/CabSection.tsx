@@ -47,7 +47,7 @@ export default function CabSection() {
 
   return (
     <section className="bg-gray-100 py-12 px-6">
-      <h2 className="text-center text-[#FF3E1D] font-semibold mb-8 sm:text-xl">
+      <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-8 text-center">
         Cabs for Every Travel Need
       </h2>
 
