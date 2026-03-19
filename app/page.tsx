@@ -17,8 +17,8 @@ export default function Home() {
         <CabSection />
         <ChooseSection />
         <AdSection />
-        {/* <HowItWorks />
-        <ReviewSection /> */}
+        <HowItWorks />
+        {/* <ReviewSection /> */}
       </main>
     </>
   );
