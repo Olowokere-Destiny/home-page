@@ -7,6 +7,7 @@ import hatchback from "../assets/images/hatchback.png";
 import van from "../assets/images/comfort.png";
 import seaterIcon from "../assets/icons/seater-icon.svg";
 import bagIcon from "../assets/icons/bag-icon.svg";
+import { Roboto } from "next/font/google";
 
 interface Feature {
   icon: StaticImageData;
@@ -20,6 +21,12 @@ interface Ride {
   image: StaticImageData;
   features: Feature[];
 }
+
+const roboto = Roboto({
+  weight: ["200", "400", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+})
 
 const rides: Ride[] = [
   {
@@ -77,19 +84,24 @@ export default function ChooseSection() {
           scrollbar-width: none;
         }
       `}</style>
-      <section className="bg-gray-100 py-12">
-        <h2 className="text-center text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-8">
-          Choose Your Ride
-        </h2>
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto text-center mb-10 md:mb-12">
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
+            Choose Your Ride
+          </h2>
+          <p className="text-sm sm:text-base lg:text-[20px] max-w-lg mx-auto">
+            Browse a range of vehicles and pick the one that suits your journey.
+          </p>
+        </div>
 
         <div className="overflow-x-auto no-scrollbar sm:ml-8 sm:pr-8 xl:ml-[6vw] xl:pr-[6vw]">
-          <div className="flex gap-6 px-6 sm:px-0 w-max">
+          <div className="flex gap-6 px-6 sm:px-0 w-max pb-4">
             {[...rides, ...rides].map((ride, index) => (
               <div
                 key={index}
-                className="min-w-65 max-w-65 bg-white rounded-lg border border-gray-200 shadow-sm p-4 hover:shadow-md transition shrink-0"
+                className={`min-w-65 max-w-65 lg:max-w-72 bg-white rounded-lg border border-gray-200 shrink-0 shadow-md ${roboto.variable} ${roboto.className}`}
               >
-                <div className="relative w-full h-28 mb-4">
+                <div className="relative w-full h-48 mb-4 pt-4">
                   <Image
                     src={ride.image}
                     alt={ride.name}
@@ -98,14 +110,14 @@ export default function ChooseSection() {
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-gray-800">{ride.name}</h3>
+                <div className="space-y-2 px-4 pb-4">
+                  <h3 className="font-semibold text-[#191D23] lg:text-[18px]">{ride.name}</h3>
 
-                  <p className="text-xs text-[#FF3E1D] font-medium">
+                  <p className="text-xs text-[#FF3E1D] font-medium lg:text-[14px]">
                     {ride.type}
                   </p>
 
-                  <p className="text-sm text-[#191D23] leading-snug">
+                  <p className="text-sm text-[#191D23] leading-snug lg:text-[16px]">
                     {ride.description}
                   </p>
 
