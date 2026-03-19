@@ -1,3 +1,4 @@
+import AdSection from "@/components/AdSection";
 import CabSection from "@/components/CabSection";
 import ChooseSection from "@/components/ChooseSection";
 import Hero from "@/components/Hero";
@@ -15,6 +16,7 @@ export default function Home() {
         <WhySection />
         <CabSection />
         <ChooseSection />
+        <AdSection />
         {/* <HowItWorks />
         <ReviewSection /> */}
       </main>
