@@ -5,7 +5,6 @@ import support from "../assets/images/247-support.png";
 import safeCars from "../assets/images/sanitized-cars.png";
 import noMiddlemen from "../assets/images/no-middlemen.png";
 import easyBooking from "../assets/images/easy-booking.png";
-import { Lato } from "next/font/google";
 
 interface StepProps {
   index: number;
@@ -15,12 +14,6 @@ interface StepProps {
   image: StaticImageData;
   imageAlt: string;
 }
-
-const lato = Lato({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-lato",
-});
 
 const steps = [
   {
@@ -110,7 +103,7 @@ function Step({
             {title}
           </h3>
         </div>
-        <p className={`text-sm leading-relaxed ${lato.className}`}>
+        <p className="text-sm leading-relaxed">
           {description}
         </p>
       </div>

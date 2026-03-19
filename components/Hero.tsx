@@ -4,7 +4,7 @@ import googlePlayBadge from "../assets/images/google-play-badge.png";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-140 md:h-170 lg:h-155 overflow-hidden">
+    <section className="relative w-full h-140 md:h-170 lg:landscape:h-screen overflow-hidden">
       <Image
         src={backgroundImage}
         alt="Hero background"
@@ -14,11 +14,11 @@ export default function Hero() {
         priority
       />
 
-      <div className="absolute inset-0 bg-linear-to-t from-white/20 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-white/20 via-transparent to-transparent" />
 
       <div className="relative z-10 flex flex-col justify-between sm:justify-center h-full max-w-7xl mx-auto py-4 sm:py-0 px-6 md:px-12 lg:translate-y-20">
-        <div className="md:max-w-[60%]">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4 font-medium">
+        <div className="md:max-w-[60%] lg:max-w-[70%]">
+          <h1 className="text-3xl sm:text-4xl lg:text-[45px] text-white leading-tight mb-4 font-medium">
             Choose your <span className="text-[#FF3E1D]">driver.</span>
             <br />
             Book <span className="text-[#FF3E1D]">
@@ -27,7 +27,7 @@ export default function Hero() {
             easily
           </h1>
 
-          <p className="text-sm sm:text-base text-white/85 leading-relaxed">
+          <p className="text-sm lg:text-[1.2rem] text-white/85 leading-relaxed font-bold">
             AAVORide is your smart, reliable, and affordable outstation taxi and
             car rental platform across India. Book one-way cabs, round trips,
             local rentals, airport transfers, wedding cars, tempo travellers,
@@ -40,7 +40,7 @@ export default function Hero() {
 
         <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 lg:bottom-[25%] bg-white/50 rounded-md px-4 py-3 flex flex-col gap-3 max-w-65 sm:max-w-75">
           <div className="flex-1 min-w-0">
-            <p className="text-xs sm:text-sm font-semibold leading-tight">
+            <p className="text-xs sm:text-base font-semibold leading-tight whitespace-nowrap">
               Download AAVORide &amp; Ride Smarter
             </p>
             <p className="text-xs sm:text-sm mt-2 leading-tight">
