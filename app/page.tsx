@@ -15,8 +15,8 @@ export default function Home() {
         <WhySection />
         <CabSection />
         <ChooseSection />
-        <HowItWorks />
-        <ReviewSection />
+        {/* <HowItWorks />
+        <ReviewSection /> */}
       </main>
     </>
   );

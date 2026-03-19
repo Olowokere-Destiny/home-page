@@ -4,7 +4,7 @@ import googlePlayBadge from "../assets/images/google-play-badge.png";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-140 md:h-155 overflow-hidden">
+    <section className="relative w-full h-140 md:h-170 lg:h-155 overflow-hidden">
       <Image
         src={backgroundImage}
         alt="Hero background"
@@ -16,9 +16,9 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-linear-to-t from-white/20 to-transparent" />
 
-      <div className="relative z-10 flex flex-col justify-between sm:justify-center h-full max-w-7xl mx-auto py-4 sm:py-0 px-6 md:px-12">
-        <div className="max-w-sm md:max-w-md">
-          <h1 className="text-3xl sm:text-4xl text-white leading-tight mb-4 font-medium">
+      <div className="relative z-10 flex flex-col justify-between sm:justify-center h-full max-w-7xl mx-auto py-4 sm:py-0 px-6 md:px-12 lg:translate-y-20">
+        <div className="md:max-w-[60%]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4 font-medium">
             Choose your <span className="text-[#FF3E1D]">driver.</span>
             <br />
             Book <span className="text-[#FF3E1D]">
@@ -38,7 +38,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 bg-white/50 rounded-md px-4 py-3 flex flex-col gap-3 max-w-65 sm:max-w-75">
+        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 lg:bottom-[25%] bg-white/50 rounded-md px-4 py-3 flex flex-col gap-3 max-w-65 sm:max-w-75">
           <div className="flex-1 min-w-0">
             <p className="text-xs sm:text-sm font-semibold leading-tight">
               Download AAVORide &amp; Ride Smarter
