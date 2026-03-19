@@ -4,29 +4,37 @@ import googlePlayBadge from "../assets/images/google-play-badge.png";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-130 md:h-155 overflow-hidden">
+    <section className="relative w-full h-140 md:h-155 overflow-hidden">
       <Image
         src={backgroundImage}
         alt="Hero background"
         fill
-        className="object-cover object-center"
+        className="object-cover"
+        style={{ objectPosition: "80% top" }}
         priority
       />
 
-      <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-white/20 to-transparent" />
 
-      <div className="relative z-10 flex flex-col justify-center h-full max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 flex flex-col justify-between sm:justify-center h-full max-w-7xl mx-auto py-4 sm:py-0 px-6 md:px-12">
         <div className="max-w-sm md:max-w-md">
-          <h1 className="text-3xl sm:text-4xl text-white leading-tight mb-4">
-            Your trip. Your <span className="text-[#FF3E1D]">driver.</span>
+          <h1 className="text-3xl sm:text-4xl text-white leading-tight mb-4 font-medium">
+            Choose your <span className="text-[#FF3E1D]">driver.</span>
             <br />
-            Your way.
+            Book <span className="text-[#FF3E1D]">
+              outstation taxis
+            </span> &amp; <span className="text-[#FF3E1D]">car rentals</span>{" "}
+            easily
           </h1>
 
           <p className="text-sm sm:text-base text-white/85 leading-relaxed">
-            Looking for a taxi? AAVORide provides reliable rides with
-            transparent pricing and trusted drivers. Book your ride quickly and
-            travel stress-free.
+            AAVORide is your smart, reliable, and affordable outstation taxi and
+            car rental platform across India. Book one-way cabs, round trips,
+            local rentals, airport transfers, wedding cars, tempo travellers,
+            and corporate travel — all in one app. Unlike traditional taxi
+            booking apps, AAVORide lets you choose verified drivers, connect
+            directly, compare options, and book with full transparency. Travel
+            smarter, safer, and stress-free with AAVORide.
           </p>
         </div>
 
