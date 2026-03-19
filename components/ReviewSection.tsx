@@ -70,7 +70,7 @@ export default function ReviewSection() {
             What Our Customers Say
           </h2>
 
-          <div className="flex gap-6 overflow-x-auto no-scrollbar max-w-6xl mx-auto">
+          <div className="flex gap-6 overflow-x-auto no-scrollbar max-w-7xl mx-auto">
             {[...reviews, ...reviews].map((review, i) => (
               <ReviewCard key={i} {...review} />
             ))}
