@@ -1,70 +1,118 @@
 import Image, { StaticImageData } from "next/image";
-import verifiedDrivers from "../assets/icons/verified-driver.svg"
-import transparentPricing from "../assets/icons/transparent-pricing.svg"
-import support from "../assets/icons/247support.svg"
-import safeCars from "../assets/icons/safe-cars.svg"
-import noMiddlemen from "../assets/icons/middlemen.svg"
-import easyBooking from "../assets/icons/ease-booking.svg"
+import verifiedDrivers from "../assets/images/verified-drivers.png";
+import transparentPricing from "../assets/images/transparent-pricing.png";
+import support from "../assets/images/247-support.png";
+import safeCars from "../assets/images/sanitized-cars.png";
+import noMiddlemen from "../assets/images/no-middlemen.png";
+import easyBooking from "../assets/images/easy-booking.png";
 import { Lato } from "next/font/google";
 
-interface WhyCardProps {
-  icon: StaticImageData;
+interface StepProps {
+  index: number;
+  number: number;
   title: string;
   description: string;
+  image: StaticImageData;
+  imageAlt: string;
 }
 
 const lato = Lato({
-  weight: ["400",],
+  weight: ["400"],
   subsets: ["latin"],
   variable: "--font-lato",
 });
 
-const features: WhyCardProps[] = [
+const steps = [
   {
-    icon: verifiedDrivers,
+    number: 1,
     title: "Verified Drivers",
-    description: "Trusted, verified drivers.",
+    description:
+      "All drivers are background verified to ensure a safe and reliable ride experience for every journey.",
+    image: verifiedDrivers,
+    imageAlt: "Verified Drivers illustration",
   },
   {
-    icon: transparentPricing,
+    number: 2,
     title: "Transparent Pricing",
-    description: "No hidden charges.",
+    description:
+      "No hidden charges—view clear and upfront pricing before booking, so you always know exactly what you're paying.",
+    image: transparentPricing,
+    imageAlt: "Transparent Pricing illustration",
   },
   {
-    icon: support,
+    number: 3,
     title: "24/7 Support",
-    description: "Help whenever you need it.",
+    description:
+      "Our support team is available round the clock to assist you anytime, ensuring a smooth and worry-free travel experience.",
+    image: support,
+    imageAlt: "24/7 Support illustration",
   },
   {
-    icon: safeCars,
+    number: 4,
     title: "Safe & Sanitized Cars",
-    description: "Clean & comfy rides.",
+    description:
+      "Travel in well-maintained, regularly sanitized vehicles designed to keep your journey safe, clean, and comfortable.",
+    image: safeCars,
+    imageAlt: "Safe & Sanitized Cars illustration",
   },
   {
-    icon: noMiddlemen,
+    number: 5,
     title: "No Middlemen",
-    description: "No middlemen involved.",
+    description:
+      "Connect directly with drivers without any intermediaries for a faster, more transparent, and reliable booking process.",
+    image: noMiddlemen,
+    imageAlt: "No Middlemen illustration",
   },
   {
-    icon: easyBooking,
-    title: "Easy booking process",
-    description: "Smooth booking experience.",
+    number: 6,
+    title: "Easy Booking Process",
+    description:
+      "Book your ride in just a few simple steps with an intuitive and hassle-free experience from start to finish.",
+    image: easyBooking,
+    imageAlt: "Easy Booking Process illustration",
   },
 ];
 
-function WhyCard({ icon, title, description }: WhyCardProps) {
+function Step({
+  index,
+  number,
+  title,
+  description,
+  image,
+  imageAlt,
+}: StepProps) {
+  const isReversed = index % 2 !== 0;
+
   return (
-    <div className="flex flex-col items-center text-center gap-3 py-4 bg-[#FAFAFA]">
-      <Image
-        src={icon}
-        alt={title}
-        width={48}
-        height={48}
-        className="w-10 h-10 sm:w-12 sm:h-12"
-      />
-      <div>
-        <p className="text-sm sm:text-base font-semibold text-[#FF3E1D] mb-1">{title}</p>
-        <p className={`text-xs sm:text-sm ${lato.className}`}>{description}</p>
+    <div
+      className={`flex flex-col md:flex-row items-center gap-4 md:gap-16 ${
+        isReversed ? "md:flex-row-reverse" : ""
+      }`}
+    >
+      <div
+        className={`w-full md:w-[40%] flex justify-center ${isReversed ? "md:justify-end" : "md:justify-start"}`}
+      >
+        <Image
+          src={image}
+          alt={imageAlt}
+          width={280}
+          height={280}
+          className="w-36 sm:w-52 md:w-72 h-auto"
+        />
+      </div>
+
+      <div className="w-full md:w-1/2 text-center md:text-left px-2 md:px-0">
+        <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+          <span className="flex items-center justify-center w-7 h-7 rounded-sm bg-[#FF3E1D] text-white text-sm font-bold shrink-0">
+            {number}
+          </span>
+          <h3 className="text-base sm:text-xl font-semibold text-[#FF3E1D]">
+            {title}
+          </h3>
+        </div>
+        <p className={`text-sm leading-relaxed ${lato.className}`}>
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -72,20 +120,20 @@ function WhyCard({ icon, title, description }: WhyCardProps) {
 
 export default function WhySection() {
   return (
-    <section className="w-full bg-white py-14 md:py-20 px-6 md:px-12">
-      <div className="max-w-4xl mx-auto text-center mb-12">
+    <section className="w-full bg-white py-10 md:py-20 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto text-center mb-10 md:mb-12">
         <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
           Why Ride with AAVORide?
         </h2>
-        <p className="text-sm sm:text-base">
+        <p className="text-sm sm:text-base max-w-lg mx-auto">
           With AAVORide, you are not just booking a cab — you are choosing your
           travel partner.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-12">
-        {features.map((feature) => (
-          <WhyCard key={feature.title} {...feature} />
+      <div className="max-w-6xl mx-auto flex flex-col gap-10 md:gap-20">
+        {steps.map((step, index) => (
+          <Step key={step.number} index={index} {...step} />
         ))}
       </div>
     </section>

@@ -1,7 +1,9 @@
 import CabSection from "@/components/CabSection";
 import ChooseSection from "@/components/ChooseSection";
 import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
 import Navbar from "@/components/Navbar";
+import ReviewSection from "@/components/ReviewSection";
 import WhySection from "@/components/WhySection";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
         <WhySection />
         <CabSection />
         <ChooseSection />
+        {/* <HowItWorks />
+        <ReviewSection /> */}
       </main>
     </>
   );

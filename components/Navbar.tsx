@@ -35,8 +35,8 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
-          <Link href="/help" className="hidden text-sm font-medium text-[#424242] md:block">
-            Help
+          <Link href="/help" className="hidden text-sm font-medium text-white bg-[#FF3E1D] px-4 py-2 rounded-md md:block">
+            Join as a AAVORide Partner
           </Link>
 
           <button
@@ -56,13 +56,13 @@ export default function Navbar() {
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <ul className="flex flex-col px-4 py-3 gap-1">
-          {[...navLinks, { label: "Help", href: "/help" }].map((link) => (
+        <ul className="flex flex-col px-4 py-3 gap-1 text-center">
+          {[...navLinks, { label: "Join as a AAVORide Partner", href: "/help" }].map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${link.href === "/help" && "bg-[#FF3E1D] text-white  px-4 py-2 rounded-md w-max mx-auto"} ${
                   link.label === "Home" ? "text-[#FF3E1D]" : "text-[#424242]"
                 }`}
               >
