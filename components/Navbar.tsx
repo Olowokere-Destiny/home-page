@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,11 +12,15 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="w-full border-b border-gray-100 bg-white relative z-50">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 md:px-8">
-        <Link href="/" className="text-xl font-bold tracking-tight text-[#FF3E1D]">
+        <Link
+          href="/"
+          className="text-xl font-bold tracking-tight text-[#FF3E1D]"
+        >
           AAVORide
         </Link>
 
@@ -25,7 +30,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  link.label === "Home" ? "text-[#FF3E1D]" : "text-[#424242]"
+                  pathname === link.href ? "text-[#FF3E1D]" : "text-[#424242]"
                 }`}
               >
                 {link.label}
@@ -35,7 +40,11 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
-          <Link href="/join" prefetch className="hidden text-sm font-medium text-white bg-[#FF3E1D] px-4 py-2 rounded-md md:block">
+          <Link
+            href="/join"
+            prefetch
+            className="hidden text-sm font-medium text-white bg-[#FF3E1D] px-4 py-2 rounded-md md:block"
+          >
             Join as a AAVORide Partner
           </Link>
 
@@ -44,26 +53,41 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`block h-0.5 w-6 bg-gray-700 transition-all duration-300 ${isOpen ? "translate-y-1.75 rotate-45" : ""}`} />
-            <span className={`block h-0.5 w-6 bg-gray-700 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-0.5 w-6 bg-gray-700 transition-all duration-300 ${isOpen ? "-translate-y-1.75 -rotate-45" : ""}`} />
+            <span
+              className={`block h-0.5 w-6 bg-gray-700 transition-all duration-300 ${isOpen ? "translate-y-1.75 rotate-45" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-gray-700 transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-gray-700 transition-all duration-300 ${isOpen ? "-translate-y-1.75 -rotate-45" : ""}`}
+            />
           </button>
         </div>
       </div>
 
       <div
         className={`absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-sm transition-all duration-300 md:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         <ul className="flex flex-col px-4 py-3 gap-1 text-center">
-          {[...navLinks, { label: "Join as a AAVORide Partner", href: "/join" }].map((link) => (
+          {[
+            ...navLinks,
+            { label: "Join as a AAVORide Partner", href: "/join" },
+          ].map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${link.href === "/help" && "bg-[#FF3E1D] text-white  px-4 py-2 rounded-md w-max mx-auto"} ${
-                  link.label === "Home" ? "text-[#FF3E1D]" : "text-[#424242]"
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  link.href === "/join"
+                    ? "bg-[#FF3E1D] text-white px-4 py-2 rounded-md w-max mx-auto"
+                    : pathname === link.href
+                    ? "text-[#FF3E1D]"
+                    : "text-[#424242]"
                 }`}
                 prefetch={link.href === "/join"}
               >
