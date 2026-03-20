@@ -42,7 +42,7 @@ export default function FAQSection() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className="w-full bg-white py-16 px-4 sm:px-8 lg:px-16 max-w-4xl mx-auto">
+    <section className="w-full bg-white py-10 px-4 sm:px-8 lg:px-16 max-w-4xl mx-auto">
       <div className="mx-auto">
         <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3 text-center">
           Frequently Asked Questions

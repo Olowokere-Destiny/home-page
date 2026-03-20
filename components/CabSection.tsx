@@ -46,7 +46,7 @@ export default function CabSection() {
   ];
 
   return (
-    <section className="py-12 px-6">
+    <section className="px-6">
       <div className="max-w-6xl mx-auto text-center mb-10 md:mb-12">
         <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
           Cabs for Every Travel Need

@@ -1,10 +1,13 @@
 "use client";
+
 import Image, { StaticImageData } from "next/image";
 import ananya from "../assets/images/ananya.png";
 import rahul from "../assets/images/rahul.png";
 import riya from "../assets/images/riya.jpg";
 import neha from "../assets/images/neha.jpg";
 import stars from "../assets/icons/reviews-stars.svg";
+import { useDragScroll } from "../lib/hooks/useDragScroll";
+
 interface ReviewCardProps {
   image: StaticImageData;
   review: string;
@@ -23,7 +26,7 @@ const reviews: ReviewCardProps[] = [
   {
     image: rahul,
     review:
-      "I booked an outstation trip with AavoRide and the experience was excellent. The driver was professional and the pricing was transparent. It’s one of the most convenient cab services I’ve used.",
+      "I booked an outstation trip with AavoRide and the experience was excellent. The driver was professional and the pricing was transparent. It's one of the most convenient cab services I've used.",
     name: "Rahul Mehta",
     role: "Business Consultant",
   },
@@ -47,12 +50,18 @@ function ReviewCard({ image, review, name, role }: ReviewCardProps) {
   return (
     <div className="flex gap-4 bg-white rounded-md p-5 shadow-sm shrink-0 w-112.5 lg:w-125 items-center">
       <div className="relative w-44 h-full shrink-0 rounded-lg overflow-hidden">
-        <Image src={image} alt={name} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover"
+          draggable={false}
+        />
       </div>
 
       <div className="flex flex-col justify-between gap-3">
         <div className="flex flex-col gap-2">
-          <Image src={stars} alt="stars" />
+          <Image src={stars} alt="stars" draggable={false} />
           <p className="text-xs sm:text-sm leading-relaxed">
             &ldquo;{review}&rdquo;
           </p>
@@ -68,25 +77,29 @@ function ReviewCard({ image, review, name, role }: ReviewCardProps) {
 }
 
 export default function ReviewSection() {
+  const scrollRef = useDragScroll({ wheelScroll: false });
+
   return (
     <>
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
-
         .no-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
       `}</style>
-      <section className="w-full py-14 md:py-20 px-6 md:px-12">
+      <section className="w-full py-14 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3 text-center">
             What Our Customers Say
           </h2>
 
-          <div className="flex gap-6 overflow-x-auto no-scrollbar max-w-7xl mx-auto py-2">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto no-scrollbar max-w-7xl mx-auto py-2"
+          >
             {reviews.map((review, i) => (
               <ReviewCard key={i} {...review} />
             ))}

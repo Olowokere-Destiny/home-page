@@ -63,7 +63,7 @@ function StepCard({ title, description, image, imageAlt }: Step) {
 
 export default function WhatWeOffer() {
   return (
-    <section className="w-full bg-white py-10 px-6">
+    <section className="w-full bg-white pb-10 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">

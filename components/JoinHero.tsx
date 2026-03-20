@@ -1,10 +1,9 @@
 import Image from "next/image";
 import heroBg from "../assets/images/join-hero-bg.png";
-import googlePlayBadge from "../assets/images/google-play-badge.png";
 
 export default function JoinHero() {
   return (
-    <section className="relative w-full h-190 md:h-170 lg:landscape:h-screen overflow-hidden sm:pb-4">
+    <section className="relative w-full h-190 md:h-150 lg:landscape:h-screen overflow-hidden sm:pb-4">
 
       <div className="absolute -top-16 -left-16 w-52 md:w-72 h-52 md:h-72 rounded-full bg-[#FF3E1D]/10 blur-2xl pointer-events-none z-0" />
 
@@ -19,7 +18,7 @@ export default function JoinHero() {
       </div>
 
       <div className="relative z-10 -translate-y-20 sm:translate-y-0 flex flex-col justify-center h-full max-w-7xl mx-auto px-6 md:px-12">
-        <div className="sm:max-w-sm md:max-w-[70%] flex flex-col gap-6">
+        <div className="sm:max-w-sm md:max-w-[70%] lg:max-w-[60%] flex flex-col gap-6">
 
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[45px] font-bold leading-tight">
             <span className="text-[#FF3E1D]">Drive, Rent,</span> and{" "}
@@ -45,22 +44,6 @@ export default function JoinHero() {
               opportunities, AAVO aims to build a strong mobility ecosystem for
               partners and riders.
             </p>
-          </div>
-
-          <div className="bg-[#76767699]/60 rounded-md shadow-sm px-4 py-3 flex flex-col gap-2 sm:gap-6 w-full sm:w-fit">
-            <p className="text-sm lg:text-lg font-semibold leading-tight">
-              Download AAVORide Partner
-            </p>
-            <p className="text-sm">
-              Create Your Partner Account and Start Earning Today
-            </p>
-            <Image
-              src={googlePlayBadge}
-              alt="Get it on Google Play"
-              width={90}
-              height={28}
-              className="shrink-0 w-20 sm:w-24 self-end mt-1"
-            />
           </div>
 
         </div>

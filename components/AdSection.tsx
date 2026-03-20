@@ -17,7 +17,7 @@ const driverPreferences = [
 
 export default function AdSection() {
   return (
-    <section className="w-full bg-white py-10 md:py-20 px-6">
+    <section className="w-full bg-white py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
 
         {/* Row 1: Image left, text right */}

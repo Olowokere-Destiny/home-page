@@ -24,7 +24,7 @@ function RoleCard({ icon, label }: RoleCardProps) {
 
 export default function OurMission() {
   return (
-    <section className="relative w-full overflow-hidden bg-white py-14 md:py-20 px-6">
+    <section className="relative w-full overflow-hidden bg-white py-14 px-6">
 
       <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-[#FF3E1D]/10 blur-3xl pointer-events-none" />
 

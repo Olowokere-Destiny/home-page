@@ -38,7 +38,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 lg:bottom-[25%] bg-white/50 rounded-md px-4 py-3 flex flex-col gap-3 max-w-65 sm:max-w-75">
+        <div className="absolute bottom-6 right-6 md:bottom-10 md:right-12 lg:bottom-[25%] bg-white/50 rounded-xs px-4 py-3 flex flex-col gap-3 max-w-65 sm:max-w-75">
           <div className="flex-1 min-w-0">
             <p className="text-xs sm:text-base font-semibold leading-tight whitespace-nowrap">
               Download AAVORide &amp; Ride Smarter

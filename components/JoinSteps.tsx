@@ -85,7 +85,7 @@ function Step({
 
 export default function JoinSteps() {
   return (
-    <section className="w-full bg-white py-10 md:py-20 px-6">
+    <section className="w-full bg-white py-10 px-6">
       <div className="max-w-6xl mx-auto text-center mb-10 md:mb-12">
         <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
           Turn Your Car Into Income
