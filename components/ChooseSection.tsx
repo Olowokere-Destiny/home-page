@@ -8,6 +8,7 @@ import van from "../assets/images/comfort.png";
 import seaterIcon from "../assets/icons/seater-icon.svg";
 import bagIcon from "../assets/icons/bag-icon.svg";
 import { Roboto } from "next/font/google";
+import { useRef, useEffect, useCallback } from "react";
 
 interface Feature {
   icon: StaticImageData;
@@ -26,7 +27,7 @@ const roboto = Roboto({
   weight: ["200", "400", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
-})
+});
 
 const rides: Ride[] = [
   {
@@ -72,13 +73,60 @@ const rides: Ride[] = [
 ];
 
 export default function ChooseSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isHoveringRef = useRef(false);
+  const isBusyRef = useRef(false);
+
+  const handleWheel = useCallback((e: WheelEvent) => {
+    if (!isHoveringRef.current) return;
+
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const atStart = el.scrollLeft <= 0;
+    const atEnd = el.scrollLeft >= el.scrollWidth - el.clientWidth - 1;
+
+    if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) {
+      return;
+    }
+
+    e.preventDefault();
+
+    if (isBusyRef.current) return;
+    isBusyRef.current = true;
+
+    el.scrollBy({ left: e.deltaY * 5, behavior: "smooth" });
+
+    setTimeout(() => {
+      isBusyRef.current = false;
+    }, 80);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const onMouseEnter = () => { isHoveringRef.current = true; };
+    const onMouseLeave = () => { isHoveringRef.current = false; };
+
+    el.addEventListener("mouseenter", onMouseEnter);
+    el.addEventListener("mouseleave", onMouseLeave);
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      el.removeEventListener("mouseenter", onMouseEnter);
+      el.removeEventListener("mouseleave", onMouseLeave);
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, [handleWheel]);
+
   return (
     <>
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
-
         .no-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
@@ -94,7 +142,10 @@ export default function ChooseSection() {
           </p>
         </div>
 
-        <div className="overflow-x-auto no-scrollbar sm:ml-8 sm:pr-8 xl:ml-[6vw] xl:pr-[6vw]">
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto no-scrollbar sm:ml-8 sm:pr-8 xl:ml-[6vw] xl:pr-[6vw]"
+        >
           <div className="flex gap-6 px-6 sm:px-0 w-max pb-4">
             {[...rides, ...rides].map((ride, index) => (
               <div
@@ -111,16 +162,15 @@ export default function ChooseSection() {
                 </div>
 
                 <div className="space-y-2 px-4 pb-4">
-                  <h3 className="font-semibold text-[#191D23] lg:text-[18px]">{ride.name}</h3>
-
+                  <h3 className="font-semibold text-[#191D23] lg:text-[18px]">
+                    {ride.name}
+                  </h3>
                   <p className="text-xs text-[#FF3E1D] font-medium lg:text-[14px]">
                     {ride.type}
                   </p>
-
                   <p className="text-sm text-[#191D23] leading-snug lg:text-[16px]">
                     {ride.description}
                   </p>
-
                   <div className="flex gap-2 pt-2 flex-wrap">
                     {ride.features.map((feature, i) => (
                       <div
