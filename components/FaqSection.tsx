@@ -105,7 +105,7 @@ export default function FAQSection() {
 
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === i ? "max-h-56 pb-5" : "max-h-0"
+                  openIndex === i ? "max-h-100 pb-5" : "max-h-0"
                 }`}
               >
                 <p className="text-sm leading-relaxed lg:text-[18px] text-[#5E5E5E]">
