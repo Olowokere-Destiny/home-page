@@ -63,7 +63,7 @@ function StepCard({ title, description, image, imageAlt }: Step) {
 
 export default function WhatWeOffer() {
   return (
-    <section className={`w-full bg-white py-10 px-6 ${roboto.className} ${roboto.variable}`}>
+    <section className="w-full bg-white py-10 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
@@ -71,7 +71,7 @@ export default function WhatWeOffer() {
           </h2>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className={`flex flex-col sm:flex-row gap-4  ${roboto.className} ${roboto.variable}`}>
           {steps.map((step) => (
             <StepCard key={step.title} {...step} />
           ))}
