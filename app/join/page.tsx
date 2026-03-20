@@ -1,3 +1,4 @@
+import JoinFaq from "@/components/JoinFaq";
 import JoinHero from "@/components/JoinHero";
 import JoinSteps from "@/components/JoinSteps";
 import OurMission from "@/components/OurMission";
@@ -11,6 +12,7 @@ const page = () => {
       <JoinSteps />
       <WhatWeOffer />
       <OurMission />
+      <JoinFaq />
     </>
   );
 };
