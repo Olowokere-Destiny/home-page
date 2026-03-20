@@ -35,7 +35,7 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-4">
-          <Link href="/help" className="hidden text-sm font-medium text-white bg-[#FF3E1D] px-4 py-2 rounded-md md:block">
+          <Link href="/join" prefetch className="hidden text-sm font-medium text-white bg-[#FF3E1D] px-4 py-2 rounded-md md:block">
             Join as a AAVORide Partner
           </Link>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col px-4 py-3 gap-1 text-center">
-          {[...navLinks, { label: "Join as a AAVORide Partner", href: "/help" }].map((link) => (
+          {[...navLinks, { label: "Join as a AAVORide Partner", href: "/join" }].map((link) => (
             <li key={link.label}>
               <Link
                 href={link.href}
@@ -65,6 +65,7 @@ export default function Navbar() {
                 className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${link.href === "/help" && "bg-[#FF3E1D] text-white  px-4 py-2 rounded-md w-max mx-auto"} ${
                   link.label === "Home" ? "text-[#FF3E1D]" : "text-[#424242]"
                 }`}
+                prefetch={link.href === "/join"}
               >
                 {link.label}
               </Link>
