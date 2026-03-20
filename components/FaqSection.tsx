@@ -6,33 +6,33 @@ const faqs = [
   {
     question: "How does AAVORide work?",
     answer:
-      "P.",
+      "AAVORide connects travelers and local users with nearby drivers for different travel needs. Users can submit their trip details in the app, and multiple drivers may respond with their offers. You can review the options, discuss details directly with the drivers via call, and choose the best one for your trip. If you want to rent a car, you can also check available vehicles in the 'Rent Car' section of the app. AAVORide supports multiple vehicle purposes such as local travel, hourly bookings, and outstation trips. Payments are made directly to the driver. There is no third-party involvement, which helps both customers and drivers benefit from transparent pricing.",
   },
   {
     question: "Can I see driver details before booking?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      "Yes! You can view the driver's profile, vehicle details, ratings, and reviews before confirming your booking.",
   },
   {
     question: "Are fares fixed or negotiable?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      "Fares depend on the vehicle type and distance (km). The pricing is fully transparent, so you can see the estimated amount in advance before confirming your booking. Whether you rent a car or book a ride, the cost details are shown clearly in the app, helping you choose the option that fits your budget.",
   },
   {
     question: "Do I pay AAVORide or the driver?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      "Payments are made directly to the driver. AAVORide does not act as a payment intermediary. This direct payment system helps maintain transparency and allows both customers and drivers to benefit without third-party charges.",
   },
   {
     question:
       "Can I book special options like pet-friendly or senior-friendly cars?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      "Yes, you can filter for special vehicle options in the app while booking.",
   },
   {
     question: "What if I face an issue during booking or travel?",
     answer:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      "Our support team is available 24/7. You can raise any issues via the app's help section or contact support directly.",
   },
 ];
 
@@ -104,11 +104,11 @@ export default function FAQSection() {
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  openIndex === i ? "max-h-40 pb-5" : "max-h-0"
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === i ? "max-h-56 pb-5" : "max-h-0"
                 }`}
               >
-                <p className="text-sm leading-relaxed lg:text-[18px]">
+                <p className="text-sm leading-relaxed lg:text-[18px] text-[#5E5E5E]">
                   {faq.answer}
                 </p>
               </div>
