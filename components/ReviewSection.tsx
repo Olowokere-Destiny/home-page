@@ -2,6 +2,8 @@
 import Image, { StaticImageData } from "next/image";
 import ananya from "../assets/images/ananya.png";
 import rahul from "../assets/images/rahul.png";
+import riya from "../assets/images/riya.jpg";
+import neha from "../assets/images/neha.jpg";
 import stars from "../assets/icons/reviews-stars.svg";
 interface ReviewCardProps {
   image: StaticImageData;
@@ -25,11 +27,25 @@ const reviews: ReviewCardProps[] = [
     name: "Rahul Mehta",
     role: "Business Consultant",
   },
+  {
+    image: riya,
+    review:
+      "I often use AavoRide for local city rides. Booking is quick, the drivers are polite, and the service is very dependable. It has become my go-to travel option",
+    name: "Dr. Riya Sharma",
+    role: "Cardiologist",
+  },
+  {
+    image: neha,
+    review:
+      "I had a wonderful experience with AavoRide. The booking process was simple, the driver was courteous, and the ride felt very safe and comfortable. I'll definitely choose AavoRide again for my future trips.",
+    name: "Neha Kapoor",
+    role: "Student",
+  },
 ];
 
 function ReviewCard({ image, review, name, role }: ReviewCardProps) {
   return (
-    <div className="flex gap-4 bg-white rounded-md p-5 shadow-sm shrink-0 w-112.5 items-center">
+    <div className="flex gap-4 bg-white rounded-md p-5 shadow-sm shrink-0 w-112.5 lg:w-125 items-center">
       <div className="relative w-44 h-full shrink-0 rounded-lg overflow-hidden">
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
@@ -64,14 +80,14 @@ export default function ReviewSection() {
           scrollbar-width: none;
         }
       `}</style>
-      <section className="w-full bg-gray-200 py-14 md:py-20 px-6 md:px-12">
+      <section className="w-full py-14 md:py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#FF3E1D] text-center mb-10">
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3 text-center">
             What Our Customers Say
           </h2>
 
-          <div className="flex gap-6 overflow-x-auto no-scrollbar max-w-6xl mx-auto">
-            {[...reviews, ...reviews].map((review, i) => (
+          <div className="flex gap-6 overflow-x-auto no-scrollbar max-w-7xl mx-auto py-2">
+            {reviews.map((review, i) => (
               <ReviewCard key={i} {...review} />
             ))}
           </div>

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Lato } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const roboto = Roboto({
-  weight: ["400", "500", "600", "700"],
+const lato = Lato({
+  weight: ["300", "400", "700"],
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--font-lato",
 });
 
 export const metadata: Metadata = {
@@ -31,8 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${roboto.variable} antialiased`}>
-        {children}
+      <body className={`${lato.variable} ${lato.variable} antialiased`}>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

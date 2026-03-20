@@ -47,11 +47,16 @@ export default function CabSection() {
 
   return (
     <section className="py-12 px-6">
-      <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-8 text-center">
-        Cabs for Every Travel Need
-      </h2>
+      <div className="max-w-6xl mx-auto text-center mb-10 md:mb-12">
+        <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
+          Cabs for Every Travel Need
+        </h2>
+        <p className="text-sm sm:text-base lg:text-[20px] max-w-xl mx-auto">
+          Flexible, comfortable, and affordable ride options designed for every type of travel.
+        </p>
+      </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
         {services.map((service, index) => (
           <CabCard key={index} {...service} />
         ))}

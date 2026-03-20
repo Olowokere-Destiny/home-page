@@ -5,7 +5,6 @@ import support from "../assets/images/247-support.png";
 import safeCars from "../assets/images/sanitized-cars.png";
 import noMiddlemen from "../assets/images/no-middlemen.png";
 import easyBooking from "../assets/images/easy-booking.png";
-import { Lato } from "next/font/google";
 
 interface StepProps {
   index: number;
@@ -15,12 +14,6 @@ interface StepProps {
   image: StaticImageData;
   imageAlt: string;
 }
-
-const lato = Lato({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-lato",
-});
 
 const steps = [
   {
@@ -82,12 +75,13 @@ function Step({
   imageAlt,
 }: StepProps) {
   const isReversed = index % 2 !== 0;
+  const isFirst = index === 0;
 
   return (
     <div
       className={`flex flex-col md:flex-row items-center gap-4 md:gap-16 ${
         isReversed ? "md:flex-row-reverse" : ""
-      }`}
+      } ${!isFirst && "md:-translate-y-10"}`}
     >
       <div
         className={`w-full md:w-[40%] flex justify-center ${isReversed ? "md:justify-end" : "md:justify-start"}`}
@@ -103,14 +97,14 @@ function Step({
 
       <div className="w-full md:w-1/2 text-center md:text-left px-2 md:px-0">
         <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-          <span className="flex items-center justify-center w-7 h-7 rounded-sm bg-[#FF3E1D] text-white text-sm font-bold shrink-0">
+          <span className="flex items-center justify-center w-7 h-7 lg:size-9 rounded-xs bg-[#FF3E1D] text-white text-sm lg:text-[20px] font-bold shrink-0">
             {number}
           </span>
-          <h3 className="text-base sm:text-xl font-semibold text-[#FF3E1D]">
+          <h3 className="text-base sm:text-xl lg:text-2xl font-semibold text-[#FF3E1D]">
             {title}
           </h3>
         </div>
-        <p className={`text-sm leading-relaxed ${lato.className}`}>
+        <p className="text-sm leading-relaxed lg:text-[20px]">
           {description}
         </p>
       </div>
@@ -120,18 +114,18 @@ function Step({
 
 export default function WhySection() {
   return (
-    <section className="w-full bg-white py-10 md:py-20 px-6 md:px-12">
+    <section className="w-full bg-white py-10 md:py-20 px-6">
       <div className="max-w-6xl mx-auto text-center mb-10 md:mb-12">
         <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3">
           Why Ride with AAVORide?
         </h2>
-        <p className="text-sm sm:text-base max-w-lg mx-auto">
+        <p className="text-sm sm:text-base lg:text-[20px] max-w-lg mx-auto">
           With AAVORide, you are not just booking a cab — you are choosing your
           travel partner.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 md:gap-20">
+      <div className="max-w-7xl mx-auto flex flex-col gap-4 sm:-gap-0">
         {steps.map((step, index) => (
           <Step key={step.number} index={index} {...step} />
         ))}
