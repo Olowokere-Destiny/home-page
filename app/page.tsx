@@ -18,7 +18,7 @@ export default function Home() {
         <ChooseSection />
         <AdSection />
         <HowItWorks />
-        {/* <ReviewSection /> */}
+        <ReviewSection />
       </main>
     </>
   );
