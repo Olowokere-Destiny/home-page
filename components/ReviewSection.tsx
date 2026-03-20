@@ -2,6 +2,8 @@
 import Image, { StaticImageData } from "next/image";
 import ananya from "../assets/images/ananya.png";
 import rahul from "../assets/images/rahul.png";
+import riya from "../assets/images/riya.jpg";
+import neha from "../assets/images/neha.jpg";
 import stars from "../assets/icons/reviews-stars.svg";
 interface ReviewCardProps {
   image: StaticImageData;
@@ -26,14 +28,14 @@ const reviews: ReviewCardProps[] = [
     role: "Business Consultant",
   },
   {
-    image: rahul,
+    image: riya,
     review:
       "I often use AavoRide for local city rides. Booking is quick, the drivers are polite, and the service is very dependable. It has become my go-to travel option",
     name: "Dr. Riya Sharma",
     role: "Cardiologist",
   },
   {
-    image: rahul,
+    image: neha,
     review:
       "I had a wonderful experience with AavoRide. The booking process was simple, the driver was courteous, and the ride felt very safe and comfortable. I'll definitely choose AavoRide again for my future trips.",
     name: "Neha Kapoor",
