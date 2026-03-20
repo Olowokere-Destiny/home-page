@@ -3,6 +3,7 @@ import AdSection2 from "@/components/AdSection2";
 import CabSection from "@/components/CabSection";
 import ChooseSection from "@/components/ChooseSection";
 import FAQSection from "@/components/FaqSection";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Navbar from "@/components/Navbar";
@@ -24,6 +25,7 @@ export default function Home() {
         <AdSection2 />
         <FAQSection />
       </main>
+      <Footer />
     </>
   );
 }
