@@ -1,5 +1,6 @@
 import JoinHero from "@/components/JoinHero";
 import JoinSteps from "@/components/JoinSteps";
+import OurMission from "@/components/OurMission";
 import WhatWeOffer from "@/components/WhatWeOffer";
 import React from "react";
 
@@ -9,6 +10,7 @@ const page = () => {
       <JoinHero />
       <JoinSteps />
       <WhatWeOffer />
+      <OurMission />
     </>
   );
 };
