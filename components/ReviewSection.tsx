@@ -80,7 +80,7 @@ export default function ReviewSection() {
       `}</style>
       <section className="w-full py-14 md:py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#FF3E1D] text-center mb-10">
+          <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3 text-center">
             What Our Customers Say
           </h2>
 
