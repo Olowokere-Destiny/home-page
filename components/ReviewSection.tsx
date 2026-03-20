@@ -90,15 +90,15 @@ export default function ReviewSection() {
           scrollbar-width: none;
         }
       `}</style>
-      <section className="w-full py-14 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
+      <section className="w-full py-14 px-6">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-xl sm:text-2xl font-semibold text-[#FF3E1D] mb-3 text-center">
             What Our Customers Say
           </h2>
 
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto no-scrollbar max-w-7xl mx-auto py-2"
+            className="flex gap-6 overflow-x-auto no-scrollbar max-w-7xl  py-2"
           >
             {reviews.map((review, i) => (
               <ReviewCard key={i} {...review} />
